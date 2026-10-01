@@ -45,7 +45,7 @@ def main() -> None:
                 print(f"{f(BOLD, WHITE)}Vérification...")
                 reponse = requests.get(name_serv)
                 if reponse.status_code == 200 :
-                    if reponse.text == "[\"Welcome to U_Web !\"]":
+                    if reponse.text == "[\"Welcome to U_Search !\"]":
                         print(f"{f(BOLD, GREEN)}URL correcte ! Bon voyage !{f(BOLD, WHITE)}")
                     else :
                         print(
@@ -62,7 +62,7 @@ def main() -> None:
 
         elif cmd == "goto":
             if name_serv == None:
-                print(f"{f(BOLD, RED)}Vous n'êtes pas connecté. Tapez {f(BOLD, BLUE)}connect{f(BOLD, WHITE)} pour vous connecter")
+                print(f"{f(BOLD, RED)}Vous n'êtes pas connecté. Tapez {f(BOLD, BLUE)}connect{f(BOLD, RED)} pour vous connecter")
             else :
                 address = input(f"{f(BOLD, WHITE)}Où souhaitez vous aller ? ")
                 print(f"{f(BOLD, WHITE)}Encodage...")
@@ -71,10 +71,10 @@ def main() -> None:
                 print(f"{f(BOLD, WHITE)}Continuez votre voyage ici : {name_serv}/get/{address}")
 
         elif cmd == "quit":
-            print(f"{f(BOLD, WHITE)}Merci d'avoir utilisé U_Web ! Bonne journée !")
+            print(f"{f(BOLD, WHITE)}Merci d'avoir utilisé U_Search ! Bonne journée !")
 
         elif cmd == "help":
-            print(f"{f(BOLD, WHITE)}Listes des commandes d'U_Search : ")
+            print(f"{f(BOLD, WHITE)}\nListes des commandes d'U_Search : ")
             print(f"{f(BOLD, BLUE)}connect : {f(BOLD, WHITE)}permet de renseigner le serveur à utiliser ({WARN} Il est nécessaire d'inclure https:// ou http:// dans l'URL)")
             print(f"{f(BOLD, BLUE)}disconnect : {f(BOLD, WHITE)}premet de de retirer le serveur actuel")
             print(f"{f(BOLD, BLUE)}goto : {f(BOLD, WHITE)}permet d'obtenir l'URL d'un lien ({WARN} Il est nécessaire d'inclure https:// ou http:// dans l'URL)")
@@ -82,6 +82,6 @@ def main() -> None:
             print()
 
         else :
-            print(f"{f(BOLD, RED)}Commande non reconnue ! Tapez help pour consulter la liste des commandes{f(BOLD, WHITE)}")
+            print(f"{f(BOLD, RED)}Commande non reconnue ! Tapez {f(BOLD, BLUE)}help{f(BOLD, RED)} pour consulter la liste des commandes{f(BOLD, WHITE)}")
             
 main()
