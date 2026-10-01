@@ -4,7 +4,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.responses import Response
 
 
-def decode(chaine):
+def dechiffre(chaine : str) -> str:
+    '''Retrouve l'URL d'avant chiffrage'''
     lien = ""
     for i in range(len(chaine)//3):
         print(int(chaine[i*3:i*3+3]))
@@ -15,11 +16,12 @@ app = FastAPI()
 
 @app.get("/")
 def root():
+    '''Renvoie la réponse par défaut qui permet au client d'identifier le serveur commme serveur U_Search'''
     return {"Welcome to U_Search !"}
 
 @app.get("/get/{lien_encode}", response_class=HTMLResponse)
 def get(lien_encode):
-    lien = decode(lien_encode)
+    lien = dechiffre(lien_encode)
     reponse = requests.get(lien)
     if reponse.status_code == 200:
 
