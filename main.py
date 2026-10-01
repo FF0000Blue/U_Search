@@ -15,7 +15,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"Welcome to U_Web !"}
+    return {"Welcome to U_Search !"}
 
 @app.get("/get/{lien_encode}", response_class=HTMLResponse)
 def get(lien_encode):
